@@ -1,0 +1,34 @@
+1. if function has single line expression then can assign on equal like
+   fun sum(a: Int, b: Int) = a + b
+
+2. Can keep interface on same kotlin file although its not the interface unlike java flexible
+
+3. No new keywords and semicolon , multiple things in single class
+
+4. class declaration class Person
+
+5. Interface implementation by : interface name
+
+6. Don't have default constructor instead primary constructor defined as: class Person(var name: String, var address: String)
+
+7. Classes are final by default (unlike java) if needs to derived then use keyword open
+
+8. init block is executed after constructor called
+
+9. string comparison is done by == operator unlike java .equals() operator
+
+8. Create secondary constructor using constructor keyword can call primary constructor using this keyword. keeping secondary constructor is not
+   preferred way to use default value as class Person(var name: String, var address: String, var maritalStatus: Boolean = false). Only provide
+   more than one constructor if you are deriving from class that requires it.
+
+9. Not understood companion object properly needs to research
+
+10. data class User(name :String, address:String)
+    often create to class to hold data
+    date keyword
+    kotlin provides equals,hasCode,toString and other functions
+    provides duplicates function as well
+
+11. Use data keyword to get value of object as toString(); which provides object attributes
+
+12. Object deconstruction is also available in kotlin eg : a is instance of class and it can be deconstructed as val(name,address)=person

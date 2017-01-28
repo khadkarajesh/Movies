@@ -15,13 +15,24 @@ class MovieActivity : AppCompatActivity(), Repository {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie)
+
         val movie = Movie()
         movie.cost = 34.0
         movie.rating = 8
 
-        ("message ${movie.rating}")
+        print("message ${movie.rating}")
+
+        var person = Person("rajesh", "Nepalgunj")
+        person.address = "kathmandu"
+        person.name = "hari"
+        print("person name ${person.name} and ${person.address}")
+
+        var student = Student("rajesh", "kathmandu")
+        student.onFailure("hello")
+        student.onSuccess("world")
 
     }
 
+    //if it has single line return
     fun sum(a: Int, b: Int) = a + b
 }
