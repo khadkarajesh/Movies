@@ -18,9 +18,5 @@ class MainActivity : BaseActivity<MainViewModel>(MainViewModel::class) {
         main_rv_movies.layoutManager = LinearLayoutManager(this)
         main_rv_movies.adapter = adapter
         viewModel.movieList.observe(this, Observer { adapter.submitList(it) })
-
-        viewModel.networkState.observe(this, Observer {
-            adapter.updateUi(it)
-        })
     }
 }

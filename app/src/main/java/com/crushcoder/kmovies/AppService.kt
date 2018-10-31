@@ -2,7 +2,7 @@ package com.crushcoder.kmovies
 
 import com.crushcoder.kmovies.rest.retrofit.Page
 import com.crushcoder.kmovies.rest.retrofit.Pageable
-import kotlinx.coroutines.experimental.Deferred
+import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 import retrofit2.http.Query
 

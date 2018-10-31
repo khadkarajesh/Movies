@@ -5,11 +5,7 @@ import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import com.crushcoder.kmovies.BaseViewModel
-import com.crushcoder.kmovies.rest.FAILURE
-import com.crushcoder.kmovies.rest.LOADING
-import com.crushcoder.kmovies.rest.SUCCESS
 import org.koin.androidx.viewmodel.ext.android.viewModelByClass
 import kotlin.reflect.KClass
 
@@ -17,7 +13,7 @@ import kotlin.reflect.KClass
 abstract class BaseActivity<out T : BaseViewModel>(clazz: KClass<T>) : AppCompatActivity() {
     private val tag = BaseActivity::class.java.simpleName
     private var progressBar: ProgressBar? = null
-    val viewModel: T by viewModelByClass(true, clazz)
+    val viewModel: T by viewModelByClass(clazz)
 
     abstract fun getLayoutId(): Int
 
@@ -27,20 +23,20 @@ abstract class BaseActivity<out T : BaseViewModel>(clazz: KClass<T>) : AppCompat
 
         viewModel.onCreate()
 
-        viewModel.state.observe(this, Observer {
-            when (it) {
-                is LOADING -> {
-                    showProgress()
-                }
-                is SUCCESS -> {
-                    hideProgress()
-                }
-                is FAILURE -> {
-                    Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
-                    hideProgress()
-                }
-            }
-        })
+//        viewModel.state.observe(this, Observer {
+//            when (it) {
+//                is LOADING -> {
+//                    showProgress()
+//                }
+//                is SUCCESS -> {
+//                    hideProgress()
+//                }
+//                is FAILURE -> {
+//                    Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
+//                    hideProgress()
+//                }
+//            }
+//        })
     }
 
     private fun showProgress() {

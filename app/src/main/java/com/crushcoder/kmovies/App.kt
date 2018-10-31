@@ -16,6 +16,6 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         app = this
-        startKoin(listOf(appModule, networkModule))
+        startKoin(this, listOf(appModule, networkModule))
     }
 }

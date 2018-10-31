@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
-import com.crushcoder.kmovies.rest.State
 import com.crushcoder.kmovies.ui.MovieDataSourceFactory
 
 class MainViewModel(appService: AppService) : BaseViewModel() {
@@ -14,8 +13,6 @@ class MainViewModel(appService: AppService) : BaseViewModel() {
 
     var movieList: LiveData<PagedList<Movie>> = MutableLiveData()
     private var movieDataSourceFactory = MovieDataSourceFactory(appService)
-    var networkState: MutableLiveData<State> = movieDataSourceFactory.networkState()
-
 
     init {
         var pageListConfig = PagedList.Config
