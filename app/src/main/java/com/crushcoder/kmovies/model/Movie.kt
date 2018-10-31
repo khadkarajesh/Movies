@@ -1,4 +1,4 @@
-package com.crushcoder.kmovies
+package com.crushcoder.kmovies.model
 
 data class Movie(
     val vote_count: Int,

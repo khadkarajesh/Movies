@@ -1,5 +1,6 @@
-package com.crushcoder.kmovies
+package com.crushcoder.kmovies.rest
 
+import com.crushcoder.kmovies.model.Movie
 import com.crushcoder.kmovies.rest.retrofit.Page
 import com.crushcoder.kmovies.rest.retrofit.Pageable
 import kotlinx.coroutines.Deferred

@@ -1,13 +1,14 @@
-package com.crushcoder.kmovies
+package com.crushcoder.kmovies.ui.list
 
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.crushcoder.kmovies.R
 import com.crushcoder.kmovies.base.activity.BaseActivity
 import com.crushcoder.kmovies.ui.MoviesAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : BaseActivity<MainViewModel>(MainViewModel::class) {
+class MovieListActivity : BaseActivity<MovieListViewModel>(MovieListViewModel::class) {
     override fun getLayoutId(): Int {
         return R.layout.activity_main
     }

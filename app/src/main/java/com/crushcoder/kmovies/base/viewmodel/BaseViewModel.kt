@@ -1,4 +1,4 @@
-package com.crushcoder.kmovies
+package com.crushcoder.kmovies.base.viewmodel
 
 import androidx.lifecycle.*
 import com.crushcoder.kmovies.rest.FAILURE

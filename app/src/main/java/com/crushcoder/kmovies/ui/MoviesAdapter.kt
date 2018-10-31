@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.crushcoder.kmovies.Movie
 import com.crushcoder.kmovies.R
+import com.crushcoder.kmovies.model.Movie
 import kotlinx.android.synthetic.main.item_movie_adapter_view.view.*
 
 class MoviesAdapter : PagedListAdapter<Movie, MovieVH>(COMPARATOR) {

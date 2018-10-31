@@ -3,12 +3,8 @@ package com.crushcoder.kmovies.ui
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PageKeyedDataSource
-import com.crushcoder.kmovies.AppService
-import com.crushcoder.kmovies.Movie
-import com.crushcoder.kmovies.rest.FAILURE
-import com.crushcoder.kmovies.rest.LOADING
-import com.crushcoder.kmovies.rest.SUCCESS
-import com.crushcoder.kmovies.rest.State
+import com.crushcoder.kmovies.model.Movie
+import com.crushcoder.kmovies.rest.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
