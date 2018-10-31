@@ -52,7 +52,7 @@ ext {
             retrofitGson          : "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
             okhttp                : "com.squareup.okhttp3:okhttp:${okhttpVersion}",
             coroutines            : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutinesVersion}",
-            coroutinesAdapter     : "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-experimental-adapter:1.0.0",
+            coroutinesAdapter     : "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2",
             retrofitInterceptor   : "com.squareup.okhttp3:logging-interceptor:${retrofitInterceptor}",
 
             koinCore              : "org.koin:koin-core:$koinVersion",
