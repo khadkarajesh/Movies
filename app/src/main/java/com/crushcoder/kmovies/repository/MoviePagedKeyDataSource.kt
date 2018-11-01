@@ -1,4 +1,4 @@
-package com.crushcoder.kmovies.ui
+package com.crushcoder.kmovies.repository
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -21,6 +21,7 @@ class MoviePagedKeyDataSource(var appService: AppService) : PageKeyedDataSource<
                 try {
                     var result = appService.getMovies("3d9f6ef05faa3072ee2caf7fb6870964", "en-US", 1).await()
                     totalPage = result.total_pages
+                    Log.d("milliseconds", "" + result.results!![0].release_date.time)
                     callback.onResult(result.results.orEmpty(), null, 2)
                     networkState.postValue(SUCCESS)
                 } catch (e: Throwable) {
@@ -35,16 +36,16 @@ class MoviePagedKeyDataSource(var appService: AppService) : PageKeyedDataSource<
         GlobalScope.launch {
             async {
                 try {
-                    networkState.postValue(LOADING)
+                    // networkState.postValue(LOADING)
                     var result = appService
                             .getMovies("3d9f6ef05faa3072ee2caf7fb6870964",
                                     "en-US",
                                     params.key)
                             .await()
                     callback.onResult(result.results.orEmpty(), params.key.inc())
-                    networkState.postValue(SUCCESS)
+                    //networkState.postValue(SUCCESS)
                 } catch (e: Throwable) {
-                    networkState.postValue(FAILURE(e.localizedMessage))
+                    // networkState.postValue(FAILURE(e.localizedMessage))
                 }
             }
         }
@@ -55,19 +56,18 @@ class MoviePagedKeyDataSource(var appService: AppService) : PageKeyedDataSource<
         GlobalScope.launch {
             async {
                 try {
-                    networkState.postValue(LOADING)
+                    //networkState.postValue(LOADING)
                     var result = appService
                             .getMovies("3d9f6ef05faa3072ee2caf7fb6870964",
                                     "en-US",
                                     params.key.inc())
                             .await()
                     callback.onResult(result.results.orEmpty(), params.key.dec())
-                    networkState.postValue(SUCCESS)
+                    //networkState.postValue(SUCCESS)
                 } catch (e: Throwable) {
-                    networkState.postValue(FAILURE(e.localizedMessage))
+                    // networkState.postValue(FAILURE(e.localizedMessage))
                 }
             }
         }
     }
-
 }

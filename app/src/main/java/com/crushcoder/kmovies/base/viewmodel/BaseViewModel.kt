@@ -1,6 +1,7 @@
 package com.crushcoder.kmovies.base.viewmodel
 
-import androidx.lifecycle.*
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.crushcoder.kmovies.rest.FAILURE
 import com.crushcoder.kmovies.rest.LOADING
 import com.crushcoder.kmovies.rest.SUCCESS
@@ -24,10 +25,6 @@ abstract class BaseViewModel : ViewModel(), KoinComponent {
 
     abstract fun onActivityCreated()
 
-    fun init(lifecycle: Lifecycle) {
-        job = AndroidJob(lifecycle)
-    }
-
     fun <T> execute(app: Deferred<T>, success: Result<T>) {
         GlobalScope.launch {
             try {
@@ -42,11 +39,12 @@ abstract class BaseViewModel : ViewModel(), KoinComponent {
         }
     }
 
-    fun execute(app: Deferred<Unit>) {
+
+    fun <T> execute(app: Deferred<T>, response: (T?) -> Unit) {
         GlobalScope.launch {
             try {
                 state.value = LOADING
-                app.await()
+                response(app.await())
                 state.value = SUCCESS
             } catch (e: HttpException) {
                 state.value = FAILURE(e.message())
@@ -54,14 +52,5 @@ abstract class BaseViewModel : ViewModel(), KoinComponent {
                 state.value = FAILURE(e.message!!)
             }
         }
-    }
-
-    class AndroidJob(lifecycle: Lifecycle) : Job by Job(), LifecycleObserver {
-        init {
-            lifecycle.addObserver(this)
-        }
-
-        @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-        fun destroy() = cancel()
     }
 }

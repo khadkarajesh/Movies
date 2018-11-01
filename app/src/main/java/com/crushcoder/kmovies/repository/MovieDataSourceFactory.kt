@@ -1,9 +1,9 @@
-package com.crushcoder.kmovies.ui
+package com.crushcoder.kmovies.repository
 
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
-import com.crushcoder.kmovies.rest.AppService
 import com.crushcoder.kmovies.model.Movie
+import com.crushcoder.kmovies.rest.AppService
 import com.crushcoder.kmovies.rest.State
 
 class MovieDataSourceFactory(var service: AppService) : DataSource.Factory<Int, Movie>() {
